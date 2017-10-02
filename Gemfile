@@ -19,7 +19,7 @@ gem 'crack', '0.3.1'
 # Pry for Rails, not in dev group in case running via prod/staging @ a training
 gem 'pry-rails'
 
-group :development, :mysql do
+group :development, :mysql, :kubernetes do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'guard-brakeman'
@@ -36,7 +36,7 @@ end
 
 gem 'simplecov', :require => false, :group => :test
 
-group :development, :test, :mysql do
+group :development, :test, :mysql, :kubernetes do
   gem 'launchy'
   gem 'capybara'
   gem 'database_cleaner'
@@ -45,7 +45,7 @@ group :development, :test, :mysql do
   gem 'test-unit'
 end
 
-group :mysql do
+group :mysql, :kubernetes do
   gem 'mysql2'
 end
 

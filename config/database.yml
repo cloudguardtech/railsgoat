@@ -9,7 +9,7 @@ development:
   pool: 5
   timeout: 5000
 
-mysql:
+mysql: &mysql
   adapter: mysql2
   database: development_railsgoat
   pool: 5
@@ -17,6 +17,11 @@ mysql:
   host: localhost
   username: root
   password:
+
+kubernetes: 
+  <<: *mysql
+  host: <%= ENV['RAILS_DB_HOST'] %>
+  password: <%= ENV['RAILS_DB_PWD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rails".
