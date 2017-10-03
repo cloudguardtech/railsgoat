@@ -7,6 +7,6 @@ ADD Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 ADD . /myapp
 
-CMD ["s", "-p", "-b", "0.0.0.0"]
+CMD ["s", "-p", "0.0.0.0"]
 ENTRYPOINT ["bundle", "exec", "rails"]
 
